@@ -149,6 +149,7 @@ selectLANG.selectedIndex = matchedLanguageLANG.valueLANG;
 
     const elementoCLA = document.querySelector('.countryInfo');
 const paisCLA = document.getElementById('countryName');
+paisCLA.setAttribute('translate', 'no');
 
 var spanishSpeakingCountriesCLA = [
     "ARGENTINA", "BOLIVIA", "CHILE", "COLOMBIA", "COSTA RICA",
