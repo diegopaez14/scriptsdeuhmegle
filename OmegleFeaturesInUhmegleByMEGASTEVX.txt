@@ -460,6 +460,10 @@ img2Umegle.setAttribute("src", "https://diegopaez14.github.io/scriptsdeuhmegle/l
 
     if (/Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent) || navigator.maxTouchPoints > 0) {//Celulares o tablets - Carga logo de omegle.com como sucedia en el original
         img2Umegle.setAttribute("src", "https://diegopaez14.github.io/scriptsdeuhmegle/logo_mobile.png");
+        var elementosEsquina = document.querySelector('.rightSide');
+        elementosEsquina.style.position = 'fixed';
+        elementosEsquina.style.right = '0vw';
+        div2LogoUmegle.style.width = "222px";
     }
 
     img2Umegle.setAttribute("height", "57");
