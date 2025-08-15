@@ -464,6 +464,21 @@ img2Umegle.setAttribute("src", "https://diegopaez14.github.io/scriptsdeuhmegle/l
         elementosEsquina.style.position = 'fixed';
         elementosEsquina.style.right = '0vw';
         div2LogoUmegle.style.width = "222px";
+
+        var metaViewport = document.querySelector('meta[name="viewport"]');
+
+if (!metaViewport) {
+  // Si no existe, la creamos
+  metaViewport = document.createElement('meta');
+  metaViewport.name = "viewport";
+  document.head.appendChild(metaViewport);
+}
+
+// Asignar el contenido deseado
+metaViewport.setAttribute(
+  "content",
+  "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+);
     }
 
     img2Umegle.setAttribute("height", "57");
