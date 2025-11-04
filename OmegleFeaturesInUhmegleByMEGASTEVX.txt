@@ -8,6 +8,8 @@
 // @match        https://uhmegle.com/video/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=uhmegle.com
 // @grant        none
+// @updateURL    https://github.com/diegopaez14/scriptsdeuhmegle/blob/main/OmegleFeaturesInUhmegleByMEGASTEVX.txt
+// @downloadURL  https://github.com/diegopaez14/scriptsdeuhmegle/blob/main/OmegleFeaturesInUhmegleByMEGASTEVX.txt
 // ==/UserScript==
 
 (function() {
@@ -38,7 +40,10 @@ const observerVNB = new MutationObserver(() => {
     let cantidadActualVNB = contarDivsYouVNB();
 
     if (cantidadActualVNB > cantidadAnteriorVNB) {
+        //console.log(cantidadActualVNB!==cantidadAnteriorVNB);
+        if(cantidadActualVNB!==cantidadAnteriorVNB){
         //startTitleAnimationCTP();
+        }
         navigator.vibrate(250); // Vibra por 200ms
     }
 
@@ -58,6 +63,7 @@ const observerDCM = new MutationObserver((mutationsListDCM) => {
       // console.log('El texto o contenido cambió:', textoDelBotonDCM.textContent);
       if (textoDelBotonDCM.textContent === "New..." || textoDelBotonDCM.textContent === "Start") {
         chatmsgDCM.disabled = true;
+          //startTitleAnimationCTP();
       } else {
         chatmsgDCM.disabled = false;
         chatmsgDCM.focus();
@@ -430,11 +436,14 @@ document.addEventListener("mousemove", () => {
 });
 
     // 8) Giro del logo de umegle
-document.getElementsByClassName("logo")[0].style.display = "none";
+    var logoAnt = document.getElementsByClassName("logo")[0];
+//logoAnt.style.display = "none";
+    document.getElementsByClassName("logoBlock")[0].style.display = "none";
 
 var aLogoUmegle = document.getElementsByClassName("logoLink")[0];
     aLogoUmegle.style.display = "flex";
     aLogoUmegle.style.margin = "10px";
+    aLogoUmegle.style.setProperty('max-width', 'max-content', 'important');
 
     var div1LogoUmegle, img1Umegle, div2LogoUmegle, img2Umegle;
 
@@ -456,10 +465,11 @@ var aLogoUmegle = document.getElementsByClassName("logoLink")[0];
     div2LogoUmegle.style.overflow = "hidden";
     div2LogoUmegle.style.flexDirection = "row-reverse";
 
-img2Umegle.setAttribute("src", "https://diegopaez14.github.io/scriptsdeuhmegle/logo.png");
+    img2Umegle.setAttribute("src", "https://diegopaez14.github.io/scriptsdeuhmegle/logo.png");
+
 
     if (/Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent) || navigator.maxTouchPoints > 0) {//Celulares o tablets - Carga logo de omegle.com como sucedia en el original
-        img2Umegle.setAttribute("src", "https://diegopaez14.github.io/scriptsdeuhmegle/logo_mobile.png");
+        img2Umegle.setAttribute("src", "https://diegopaez14.github.io/scriptsdeuhmegle/dotcomlogo.png");
         var elementosEsquina = document.querySelector('.rightSide');
         elementosEsquina.style.position = 'fixed';
         elementosEsquina.style.right = '0vw';
@@ -483,6 +493,7 @@ metaViewport.setAttribute(
 
     img2Umegle.setAttribute("height", "57");
     img2Umegle.style.height="171";
+    img2Umegle.style.marginLeft = "-57px";
 
     aLogoUmegle.appendChild(div1LogoUmegle);
     div1LogoUmegle.appendChild(img1Umegle);
