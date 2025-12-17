@@ -27,11 +27,19 @@
         estilos.innerHTML = ".chatWindow div{padding-bottom: .5em; display: block; animation: msgfade .25s ease-out forwards; } #information{ margin-top: initial; } .information{font-size:.9em} @keyframes msgfade {from {opacity: 0;} to {opacity: 1;} } @keyframes giroLogo {0%   { transform: rotate(330deg); } 72%  { transform: rotate(-30deg); } } .logoUmegleR{ animation-duration:0.83s; animation-name: giroLogo; } ";
     }
 
+    const styleH = document.createElement('style');
+    styleH.textContent = `
+        :root {
+            --header-height: 73px !important;
+        }
+    `;
+    document.head.appendChild(styleH);
+
     //2) VIBRACION AL RECIBIR NUEVO MENSAJE DEL DESCONOCIDO
 var mainMessagesVNB = document.getElementById('mainMessages');
 
 function contarDivsYouVNB() {
-    return mainMessagesVNB.querySelectorAll('div:has(> span.Partner)').length;
+    return mainMessagesVNB.querySelectorAll('div:has(> span.Stranger)').length;
 }
 
 let cantidadAnteriorVNB = contarDivsYouVNB();
@@ -342,7 +350,7 @@ function verificarDesconexionBSOC() {
         let textoBSOC = elementoBSOC.textContent.trim();
 
         if (
-            textoBSOC === "Partner has disconnected" ||
+            textoBSOC === "Stranger has disconnected" ||
             msjYHD.length > 0 ||
             textoBSOC.includes("Technical error")
         ) {
